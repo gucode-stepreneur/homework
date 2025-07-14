@@ -243,12 +243,6 @@ export default function Home() {
                 </h2>
                 <div className="flex space-x-2">
                   <button
-                    onClick={() => router.push('/admin/notifications')}
-                    className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors"
-                  >
-                    จัดการแจ้งเตือน
-                  </button>
-                  <button
                     onClick={() => router.push('/homework/new')}
                     className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
                   >
