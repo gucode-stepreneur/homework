@@ -1,4 +1,3 @@
-console.log('start server.js')
 import { createServer } from "node:http";
 import next from "next";
 import cron from "node-cron";
@@ -117,5 +116,3 @@ app.prepare().then(() => {
   });
 });
 
-
-sendLineBroadcast('hello')

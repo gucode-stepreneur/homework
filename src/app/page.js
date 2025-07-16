@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 
 export default function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -201,7 +202,12 @@ export default function Home() {
         </div>
       </nav>
 
-      <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+      <div className='flex flex-col max-w-7xl mx-auto pt-5 sm:px-6 lg:px-8 '>
+        <p className='!text-black'>แอดไลน์เพื่อรับการแจ้งเตือน</p>
+        <Image src='/icon/L_gainfriends_2dbarcodes_GW.png' width={1000} height={1000} className="w-[200px] h-[200px] object-contain" />
+      </div>
+
+      <main className="max-w-7xl mx-auto py-6 pt-3 sm:px-6 lg:px-8">
         <div className="px-4 py-6 sm:px-0">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div className="bg-white overflow-hidden shadow rounded-lg">
