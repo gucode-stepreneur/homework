@@ -27,12 +27,19 @@ export default function NewHomework() {
     setLoading(true)
 
     try {
+      // แปลง dueDate เป็น UTC ISO string ก่อนส่งไป backend
+      const localDueDate = new Date(formData.dueDate)
+      const utcDueDate = localDueDate.toISOString()
+
       const response = await fetch('/api/homework', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+          ...formData,
+          dueDate: utcDueDate // ส่งเป็น UTC
+        })
       })
 
       const data = await response.json()
