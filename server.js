@@ -74,17 +74,17 @@ async function checkHomework() {
   let ids1 = [];
 
   homeworks.forEach(hw => {
-    const due = dayjs(hw.dueDate).tz('Asia/Bangkok', true);
+    const due = dayjs.tz(hw.dueDate, 'Asia/Bangkok');
     const diffMinutes = due.diff(now, 'minute');
     // 2 วัน = 2880 นาที, 1 วัน = 1440 นาที
     if (!hw.beforetwodaynoti && diffMinutes <= 2880 + tolerance && diffMinutes >= 2880 - tolerance) {
       // แจ้งเตือน 2 วัน (±5 นาที)
-      message2 += `• ${hw.title} (${hw.subject}) - ${formatDate(hw.dueDate)}\n👤 ${hw.user.username}\n\n`;
+      message2 += `• ${hw.title} (${hw.subject}) - ${hw.dueDate}\n👤 ${hw.user.username}\n\n`;
       ids2.push(hw.id);
     }
     if (!hw.beforeonedaynoti && diffMinutes <= 1440 + tolerance && diffMinutes >= 1440 - tolerance) {
       // แจ้งเตือน 1 วัน (±5 นาที)
-      message1 += `• ${hw.title} (${hw.subject}) - ${formatDate(hw.dueDate)}\n👤 ${hw.user.username}\n\n`;
+      message1 += `• ${hw.title} (${hw.subject}) - ${hw.dueDate}\n👤 ${hw.user.username}\n\n`;
       ids1.push(hw.id);
     }
   });
