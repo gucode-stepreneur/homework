@@ -74,7 +74,7 @@ async function checkHomework() {
   let ids1 = [];
 
   homeworks.forEach(hw => {
-    const due = dayjs.tz(hw.dueDate, 'Asia/Bangkok');
+    const due = dayjs(hw.dueDate).tz('Asia/Bangkok', true);
     const diffMinutes = due.diff(now, 'minute');
     // 2 วัน = 2880 นาที, 1 วัน = 1440 นาที
     if (!hw.beforetwodaynoti && diffMinutes <= 2880 + tolerance && diffMinutes >= 2880 - tolerance) {
